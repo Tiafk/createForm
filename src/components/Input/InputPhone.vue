@@ -19,6 +19,7 @@ const updateValue = () => {
     if (!formattedValue.value.startsWith('+7')) {
         formattedValue.value = '+7' + formattedValue.value; 
     }
+
     formattedValue.value = formattedValue.value.slice(0, 12);
     emit('update:value', formattedValue.value);
 };

@@ -1,0 +1,162 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+    background: linear-gradient(90deg, rgba(81,240,198,1) 0%, rgba(129,172,180,1) 47%, rgba(145,231,245,1) 100%);
+    
+    .form {
+        display: flex;
+        max-width: 400px;
+        width: 100%;
+        height: 100vh;
+        max-height: 700px;
+        flex-direction: column;
+        background-color: #b3b3b3;
+        border-radius: 14px;
+        box-shadow: 1px 0 10px #000;
+        padding: 20px;
+        margin: 20px;
+
+        .title {
+            font-weight: 700;
+            font-size: 32px;
+            color: rgb(23, 68, 56);
+            margin-bottom: 30px;
+            z-index: 90;
+        }
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        max-height: 570px;
+        overflow: scroll;
+        overflow-x:hidden;
+        gap: 30px;
+        padding-top: 5px;
+        z-index: 100;
+        overflow: auto;
+                    
+        &::-webkit-scrollbar {
+            width: 13px;
+            background-color: #b3b3b3;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border: 5px solid #b3b3b3;
+            background-color: #dddddd;
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            margin: 15px;
+        }
+
+        .passport {
+            display: flex;
+            gap: 20px;
+        
+            .item {
+                max-width: 100px;
+            }
+        }
+
+        .select-wrapper {
+            margin: 30px 0;
+
+            h3 {
+                margin-bottom: 20px;
+            }
+
+            .item-container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 20px;
+
+                .item {
+                    display: flex;
+
+                    input {
+                        margin-right: 5px;
+                    }
+
+                    .text {
+                        color: rgb(23, 68, 56);
+                    }
+                }
+            }
+        }
+
+        .sms-wrapper {
+                user-select: none;
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                line-height: 23.52px;
+                color: #1F2324;
+                margin-bottom: 22px;
+            
+                .real-checkbox {
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    z-index: -1;
+                }
+            
+                .custom-checkbox {
+                    position: relative;
+                    display: inline-block;
+                    min-width: 12px;
+                    height: 12px;
+                    border: 1px solid #fff;
+                    background: transparent;
+                    margin-right: 18px;
+                
+                    &::before {
+                        //рисую галочку
+                        content: '';
+                        width: 9.33px;
+                        height: 7.06px;
+                        background-image: url(../img/OOjs_UI_icon_check-green.svg.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        margin-left: 4px;
+                    
+                        //выравниваю по центру
+                        position: absolute;
+                        left: 60%;
+                        top: 30%;
+                        transform: translate(-50%, -50%) scale(0);
+                    }
+                }
+            
+                .real-checkbox:checked +.custom-checkbox::before {
+                        transform: translate(-50%, -50%) scale(2);
+                }
+    
+                .real-checkbox:checked + .custom-checkbox {
+                    border: 1px solid #66ff00;
+                }
+    
+                .text_item {
+                    margin-right: 8px;
+                }
+        }
+    }
+
+}
+
+
+@media (max-width: 375px) {
+    .wrapper {
+        .form {
+            margin: 0;
+            border-radius: 0;
+        }
+    }
+}
